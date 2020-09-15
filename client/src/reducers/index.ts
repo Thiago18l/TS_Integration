@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
+import { todosReducer } from './todos';
+import { ITodo } from '../api/index';
 
-export const reducers = combineReducers({
-    counter: () => {
-        return 1;
-    }
+export interface IStore {
+    todos: ITodo[];
+}
+
+export const reducers = combineReducers<IStore>({
+    todos: todosReducer
 });
