@@ -13,8 +13,13 @@ export interface IFetchTodos {
     type: Types.fetchTodos;
     payload: ITodo[];
 }
+
+export interface IDeleteTodo {
+    type: Types.deleteTodos;
+    payload: number;
+}
 export const fetchTodos = () => {
-    return async function(dispatch: Dispatch) {
+    return async function (dispatch: Dispatch) {
         const response = await axios.get<ITodo[]>(url);
 
         dispatch<IFetchTodos>({
@@ -23,3 +28,10 @@ export const fetchTodos = () => {
         })
     }
 };
+
+export const deleteTodo = (id: number): IDeleteTodo => {
+    return {
+        type: Types.deleteTodos,
+        payload: id,
+    }
+}
