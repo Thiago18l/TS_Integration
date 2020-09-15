@@ -3,13 +3,13 @@ import { Dispatch } from 'redux';
 import { Types } from './Types';
 const url = `https://jsonplaceholder.typicode.com/todos`;
 
-interface ITodo {
+export interface ITodo {
     id: number;
     title: string;
     completed: boolean;
 }
 
-interface IFetchTodos {
+export interface IFetchTodos {
     type: Types.fetchTodos;
     payload: ITodo[];
 }
